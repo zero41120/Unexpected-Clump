@@ -27,7 +27,7 @@ function is_ie() {
 }
 
 function include_layout_template($template_name = "") {
-	include (LIB_PATH . DS . 'layout' . DS . $template_name);
+	include (LIB_PATH . DS . 'layouts' . DS . $template_name);
 }
 
 function echo_html_header($title, $css = "default.css"){

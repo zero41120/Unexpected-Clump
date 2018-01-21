@@ -1,8 +1,8 @@
 <?php
-defined ( 'WEB_SERVER' ) ? null : define ( "WEB_SERVER", "138.86.52.25" );
-defined ( 'WEB_USER' ) ? null : define ( "WEB_USER", "toset" );
-defined ( 'WEB_PASS' ) ? null : define ( "WEB_PASS", "toset" );
-defined ( 'WEB_NAME' ) ? null : define ( "WEB_NAME", "toset" );
+defined ( 'WEB_SERVER' ) ? null : define ( "WEB_SERVER", "localhost" );
+defined ( 'WEB_USER' ) ? null : define ( "WEB_USER", "game" );
+defined ( 'WEB_PASS' ) ? null : define ( "WEB_PASS", "password" );
+defined ( 'WEB_NAME' ) ? null : define ( "WEB_NAME", "clump" );
 
 
 class MySQLDatabase {
@@ -15,11 +15,9 @@ class MySQLDatabase {
 	function __construct($server, $user, $pass, $db_name, $db_port = "") {
 		try {
 			$this->open_connection ($server, $user, $pass, $db_name, $db_port);
-			$this->query ( "SET NAMES 'utf8'" );
-			$this->query ( "SET CHARACTER_SET_CLIENT='utf8'" );
-			$this->query ( "SET CHARACTER_SET_RESULTS='utf8'" );
 		} catch (Exception $e) {
 			header ( "Location: " . "maintain.php" );
+			//die ( "Database connection failed: " . mysqli_connect_error () . "(" . mysqli_connect_errno () . ")" );
 			exit ();
 		}
 		
@@ -34,11 +32,10 @@ class MySQLDatabase {
 		if (mysqli_connect_errno ()) {
 			throw new Exception("error connecting game server");
 			
-			/*die ( "Database connection failed: " . 
-				  mysqli_connect_error () . 
-				  "(" . mysqli_connect_errno () . ")" 
-				);
-				*/
+			// die ( "Database connection failed: " . 
+			// 	  mysqli_connect_error () . 
+			// 	  "(" . mysqli_connect_errno () . ")" 
+			// 	);
 		}
 	}
 	public function close_connection() {

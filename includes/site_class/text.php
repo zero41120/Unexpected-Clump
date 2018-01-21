@@ -15,17 +15,17 @@ function echo_url($key){
 	echo($url[$key]);
 }
 
-function echo_text($key, $lang = "en-US"{
+function echo_text($key, $lang = "en-US"){
 	if($lang == "en-US"){
 		global $text_english;
-		echo($text[$key]);	
+		echo($text_english[$key]);	
 	}
 }
 
-function get_text($key, $lang = "en-US"{
+function get_text($key, $lang = "en-US"){
 	if($lang == "en-US"){
 		global $text_english;
-		return $text[$key];	
+		return $text_english[$key];	
 	}
 }
 
