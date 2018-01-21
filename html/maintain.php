@@ -1,0 +1,1 @@
+<?php echo("Sorry, site is under maintenance."); ?>
