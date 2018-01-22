@@ -1,4 +1,6 @@
 <?php
+// For remote development only
+include_once("authentication.php");
 defined ( 'WEB_SERVER' ) ? null : define ( "WEB_SERVER", "localhost" );
 defined ( 'WEB_USER' ) ? null : define ( "WEB_USER", "game" );
 defined ( 'WEB_PASS' ) ? null : define ( "WEB_PASS", "password" );
