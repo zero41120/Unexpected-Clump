@@ -4,6 +4,13 @@
     require_once('../includes/config.php');
 ?>
 
+<?php 
+	// Check request integrity
+	if(empty($_GET['room'])){
+		die("Join room request failed due to missing room number");
+	}
+?>
+
 <?php
 	// Create a new uesr # TODO make sure that it's no longer than 128 char
 	$player = new User();

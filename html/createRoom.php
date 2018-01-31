@@ -5,25 +5,27 @@
 ?>
 
 <?php
-	
-	// Create new room
-	$room = new Room();
-	$room->is_host = 0;
-	$room->save(); // Auto generate a room id
+	// TODO Get information about theme id's
 
-	// Create new user
+
+	// Create new user, aka judge
 	$user = new User();
-	$name = empty($_GET['playerName'])? "Host " . $room->id : safe_input($_GET['playerName']);
+	$name = empty($_GET['playerName'])? "Host" : safe_input($_GET['playerName']);
 	$user->name = $name;
 	$user->save(); // Auto generate a user_id
+
+	// Create new room
+	$room = new Room();
+	$room->user_id = $user->id;
+	$room->save(); // Auto generate a room id
 
 	// Update room information
 	$room->player_id = $user->id;
 	$room->is_host = 1;
 	$room->save(); 
 	$info = '{';
-	$info .= '"room": '   . $room->id  . ',';
-	$info .= '"player": ' . $room->player_id . '';
+	$info .= '"room_id": '   . $room->id  . ',';
+	$info .= '"player_id": ' . $room->player_id . '';
 	$info .= '}';
 	echo($info);
 	# ROOMID is a generated string value that uniquely identifies the room created
