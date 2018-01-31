@@ -1,1 +1,66 @@
-This is git readme
+Unexpected Clump
+1/21/2018
+
+Team Clump
+Product Owner: Shiuan Lin
+Scrum Master: Andrew Gilchrist
+Member: Jerod Zheng, Nathan O'Hara, Richard Harker
+
+The slides:
+https://docs.google.com/presentation/d/1feVvGFDXJRphNJrWQCaPifOhgL2iy20FPc2Ym5ZB6_I/edit?usp=sharing
+
+
+
+Unexpected Clump is a web-based card game for people to play in a party 
+with phones or other devices. The target is to develop a cross platform 
+website and allow users to play a game without ever need to download any 
+application.
+
+
+Planned product:
+
+There is a judge and couple players. A judge initials the game in the 
+website and gets a room number where player can join with their devices.
+
+Once a judge indicates all players are in, the website pushes each 
+player some "character" cards(C), some "equipment" cards(E), and some 
+"status" cards(S).
+
+The cards may look like
+
+[C1]Professor: You can define a specific study of field and 
+               gain 1 resource of from a university.
+[C2]Hacker: This character negates other's technology equipment cards.
+[E1]Chain-saw
+[E2]Cute colored dress: choose the color to charm the judge.
+[S1]Just finished coffee in the morning
+[S2]Drunk and puke on a bus: needs to pay $100 clean up fee
+
+Then the judge will say what the winner rule of this around, such as 
+"the smartest clump". 
+
+Player A choose a hacker with cute pink dress who just 
+finished coffee in the morning. 
+
+Player B have a college student with 
+brain transplant who never get high with weed. 
+
+Once the player choose their clump, the information is send to the judge
+and player can show what they have pick on their screen to everyone.
+
+In this case, A and B must argue who's the best for the winning 
+condition for the round, and then judge will pick the winner. 
+Whoever wins the most in 5 round is the winner of the game.
+
+
+Challenge 1: Graphic user interface with phone browser.
+Challenge 2: User experience with control done in background (No reloads)
+Risk 1: Security attacks
+
+== Technologies ==
+Technology: Javascript, HTML, CSS
+Framework: LAMP: Linux, Apache, MySQL, PHP
+
+
+
+
