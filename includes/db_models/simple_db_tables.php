@@ -1,15 +1,31 @@
 <?php
 
-class Sometable extends DatabaseObject{
-	protected static $table_name = "tname";
+class User extends DatabaseObject{
+	protected static $table_name = "user";
 	protected static $db_fields = array (
-		'field1','field2','field3'
+		'id', 'name'
 	);
-	public $field1, $field2, $field3;
+	public $id, $name;
+}
 
-	public static function find_by_id($id = "") {
-		return static::find_by_field_index(0, $id, false, $game_db);
+class Room extends DatabaseObject{
+	protected static $table_name = "room";
+	protected static $db_fields = array (
+		'id','user_id'
+	);
+	public $id, $user_id;
+
+	public static function find_by_host_user_id($user_id){
+		User::find_by_field_index(1, $user_id);
 	}
+}
+
+class RoomUser extends Junction_object_reference{
+	protected static $table_name = "room_user";
+	protected static $db_fields = array (
+		'room_id', 'user_id'
+	);
+	public $room_id, $user_id;
 }
 
 ?>

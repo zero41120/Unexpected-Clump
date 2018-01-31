@@ -1,4 +1,6 @@
 <?php
+// For remote development only
+include_once("authentication.php");
 defined ( 'WEB_SERVER' ) ? null : define ( "WEB_SERVER", "localhost" );
 defined ( 'WEB_USER' ) ? null : define ( "WEB_USER", "game" );
 defined ( 'WEB_PASS' ) ? null : define ( "WEB_PASS", "password" );
@@ -52,7 +54,7 @@ class MySQLDatabase {
 	private function confirm_query($result, $sql) {
 		if (!$result) {
 			//mysqli_rollback($this);
-			//die("Failed sql: " . $sql . '(' . $this->connection->error .')' ); // TODO
+			die("Failed sql: " . $sql . '(' . $this->connection->error .')' ); // TODO
   			header ( "Location: " . "maintain.php" );
 					
 		}
@@ -83,7 +85,7 @@ class MySQLDatabase {
 }
 
 
-$main_db = new MySQLDatabase(WEB_SERVER, WEB_USER, WEB_PASS, WEB_NAME);
+$db_connect = new MySQLDatabase(WEB_SERVER, WEB_USER, WEB_PASS, WEB_NAME);
 // $game_db = new MySQLDatabase(GAME_SERVER, GAME_USER, GAME_PASS, GAME_NAME, GAME_PORT); if needed
 
 ?>
