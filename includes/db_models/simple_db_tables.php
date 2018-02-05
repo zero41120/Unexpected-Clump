@@ -29,7 +29,7 @@ class RoomUser extends Junction_object_reference{
 }
 
 class Character extends DatabaseObject{
-	protected static $table_name = "character";
+	protected static $table_name = "character_card";
 	protected static $db_fields = array (
 		'id','theme_id', 'script_id', 'name', 'ability'
 	);
@@ -41,7 +41,7 @@ class Character extends DatabaseObject{
 }
 
 class Equipment extends DatabaseObject{
-	protected static $table_name = "equipment";
+	protected static $table_name = "equipment_card";
 	protected static $db_fields = array (
 		'id','theme_id', 'script_id', 'name', 'ability'
 	);
@@ -53,7 +53,7 @@ class Equipment extends DatabaseObject{
 }
 
 class Status extends DatabaseObject{
-	protected static $table_name = "status";
+	protected static $table_name = "status_card";
 	protected static $db_fields = array (
 		'id','theme_id', 'script_id', 'description'
 	);

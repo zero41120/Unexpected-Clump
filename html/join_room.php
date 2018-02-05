@@ -12,20 +12,39 @@
 ?>
 
 <?php
-
-	// Give random cards
-	$c_cards = Characters::find_all();
-	$e_cards = Equipment::find_all();
-	$s_cards = Status::find_all();
-	var_dump($c_cards);
-	// TODO randomly select cards.
-	// TODO code the theme random select
-
+	
+function get_json($name, $array){
+	$str = '"' . $name . '":[';
+	foreach ($array as $value) {
+		$str .= json_encode($value);
+		$str .= ',';
+	}
+	$str = rtrim($str, ',');
+	$str .= ']';
+	return $str;
+}
 
 	// Create a new uesr # TODO make sure that it's no longer than 128 char
 	$player = new User();
 	$player->name = empty($_GET['name'])? "Player" : safe_input($_GET['name']);
 	$player->save();
+
+	// Give random cards
+	// TODO randomly select cards.
+	// TODO code the theme random select
+	// TODO make a JSON echo
+	$c_cards = Character::find_all(10);
+	$e_cards = Equipment::find_all(10);
+	$s_cards = Status::find_all(10);
+	$json_str = '{';
+	$json_str .= '"cards":{';
+		$json_str .= get_json("characters", $c_cards);
+		$json_str .= ',';
+		$json_str .= get_json("equipment", $e_cards);
+		$json_str .= ',';
+		$json_str .= get_json("status", $s_cards);
+	$json_str .= '},';
+	$json_str .= '"player":' . '"' . $player->id . '"';
 
 	// Select the room # TODO make sure the room exists.
 	$room = Room::find_by_id(safe_input($_GET['room']));
@@ -46,58 +65,12 @@
 		$user = User::find_by_id($room_user->user_id);
 		echo("<br/>Player :" . $user->name . " is in the room");
 	}
+	var_dump($json_str);
+
 	# $room is the ROOMID string given in createRoom.php
 	# $name is a player chosen string, their name that will be visible to the judge
 	# I could limit which characters are usable for $name on the front end, but it should be sanitized anyway
 	// Player don't immediately get cards 
-
-	// echo '{
-	// 	"cards": {
-	// 		"characters": [
-	// 			{
-	// 				"id": "CARDID",
-	// 				"name": "Card Name",
-	// 				"ability": "Put the ability of the card here (empty string if none)",
-	// 				"image": "/img/path.whatever"
-	// 			},
-	// 			{
-	// 				"id": "CARDID",
-	// 				"name": "Card Name",
-	// 				"ability": "Put the ability of the card here (empty string if none)",
-	// 				"image": "/img/path.whatever"
-	// 			}
-	// 		],
-	// 		"equipment": [
-	// 			{
-	// 				"id": "CARDID",
-	// 				"name": "Card Name",
-	// 				"ability": "Put the ability of the card here (empty string if none)",
-	// 				"image": "/img/path.whatever"
-	// 			},
-	// 			{
-	// 				"id": "CARDID",
-	// 				"name": "Card Name",
-	// 				"ability": "Put the ability of the card here (empty string if none)",
-	// 				"image": "/img/path.whatever"
-	// 			}
-	// 		],
-	// 		"statuses": [
-	// 			{
-	// 				"id": "CARDID",
-	// 				"name": "Card Name",
-	// 				"ability": "Put the ability of the card here (empty string if none)",
-	// 				"image": "/img/path.whatever"
-	// 			},
-	// 			{
-	// 				"id": "CARDID",
-	// 				"name": "Card Name",
-	// 				"ability": "Put the ability of the card here (empty string if none)",
-	// 				"image": "/img/path.whatever"
-	// 			}
-	// 		]
-	// 	},
-	// 	"player": "PLAYERID"
-	// }';
 	# PLAYERID is a generated string which uniquely identifies the player, as CARDID should be for each card
 	# whitespace can be omitted in the JSON response (except in strings like card names, of course)
 	# it is fine to start dealing out cards before all players have joined the room
