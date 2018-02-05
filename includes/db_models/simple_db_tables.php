@@ -28,4 +28,40 @@ class RoomUser extends Junction_object_reference{
 	public $room_id, $user_id;
 }
 
+class Character extends DatabaseObject{
+	protected static $table_name = "character";
+	protected static $db_fields = array (
+		'id','theme_id', 'script_id', 'name', 'ability'
+	);
+	public $id, $theme_id, $script_id, $name, $ability;
+
+	public static function get_random_by_theme_id($theme_id){
+		#TODO
+	}
+}
+
+class Equipment extends DatabaseObject{
+	protected static $table_name = "equipment";
+	protected static $db_fields = array (
+		'id','theme_id', 'script_id', 'name', 'ability'
+	);
+	public $id, $theme_id, $script_id, $name, $ability;
+
+	public static function get_random_by_theme_id($theme_id){
+		#TODO
+	}
+}
+
+class Status extends DatabaseObject{
+	protected static $table_name = "status";
+	protected static $db_fields = array (
+		'id','theme_id', 'script_id', 'description'
+	);
+	public $id, $theme_id, $script_id, $description;
+
+	public static function get_random_by_theme_id($theme_id){
+		#TODO
+	}
+}
+
 ?>
