@@ -1,12 +1,29 @@
 <?php
 
-class User extends DatabaseObject{
-	protected static $table_name = "user";
+class Id_name_reference extends DatabaseObject{
 	protected static $db_fields = array (
 		'id', 'name'
 	);
 	public $id, $name;
+	public static function find_by_id_comma_sep_list($ids, $limit = 100){
+		global $db_connect;
+		if (empty($ids)) { return false; }
+		$query  = " SELECT * FROM " . static::$table_name;
+		$query .= " WHERE id in (" . $db_connect->escape_value($ids) . ")";
+		$query .= " LIMIT " . $db_connect->escape_value($limit);
+		$result_array = static::find_by_sql($query);
+		return !empty($result_array) ? $result_array : false;
+	}
 }
+
+class User extends Id_name_reference{
+	protected static $table_name = "user";
+}
+class Theme extends Id_name_reference{
+	protected static $table_name = "theme";
+}
+
+
 
 class Room extends DatabaseObject{
 	protected static $table_name = "room";
@@ -20,7 +37,7 @@ class Room extends DatabaseObject{
 	}
 }
 
-class RoomUser extends Junction_object_reference{
+class Room_user extends Junction_object_reference{
 	protected static $table_name = "room_user";
 	protected static $db_fields = array (
 		'room_id', 'user_id'
@@ -28,40 +45,12 @@ class RoomUser extends Junction_object_reference{
 	public $room_id, $user_id;
 }
 
-class Character extends DatabaseObject{
-	protected static $table_name = "character_card";
+class Room_theme extends Junction_object_reference{
+	protected static $table_name = "room_theme";
 	protected static $db_fields = array (
-		'id','theme_id', 'script_id', 'name', 'ability'
+		'room_id', 'theme_id'
 	);
-	public $id, $theme_id, $script_id, $name, $ability;
-
-	public static function get_random_by_theme_id($theme_id){
-		#TODO
-	}
-}
-
-class Equipment extends DatabaseObject{
-	protected static $table_name = "equipment_card";
-	protected static $db_fields = array (
-		'id','theme_id', 'script_id', 'name', 'ability'
-	);
-	public $id, $theme_id, $script_id, $name, $ability;
-
-	public static function get_random_by_theme_id($theme_id){
-		#TODO
-	}
-}
-
-class Status extends DatabaseObject{
-	protected static $table_name = "status_card";
-	protected static $db_fields = array (
-		'id','theme_id', 'script_id', 'description'
-	);
-	public $id, $theme_id, $script_id, $description;
-
-	public static function get_random_by_theme_id($theme_id){
-		#TODO
-	}
+	public $room_id, $theme_id;
 }
 
 ?>

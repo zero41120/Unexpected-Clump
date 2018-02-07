@@ -53,10 +53,9 @@ class MySQLDatabase {
 	}
 	private function confirm_query($result, $sql) {
 		if (!$result) {
-			//mysqli_rollback($this);
-			die("Failed sql: " . $sql . '(' . $this->connection->error .')' ); // TODO
-  			header ( "Location: " . "maintain.php" );
-					
+			mysqli_rollback($this);
+			throw new Exception("Failed sql: " . $sql . '(' . $this->connection->error .')' ); 
+  			//header ( "Location: " . "maintain.php" );		
 		}
 		return true;
 	}
