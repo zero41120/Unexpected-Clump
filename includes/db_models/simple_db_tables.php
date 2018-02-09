@@ -33,7 +33,7 @@ class Room extends DatabaseObject{
 	public $id, $user_id;
 
 	public static function find_by_host_user_id($user_id){
-		User::find_by_field_index(1, $user_id);
+		return static::find_by_field_index(1, $user_id, false);
 	}
 }
 
@@ -53,4 +53,17 @@ class Room_theme extends Junction_object_reference{
 	public $room_id, $theme_id;
 }
 
+
+class Submitted_info extends DatabaseObject{
+	protected static $table_name = "submitted_info";
+	protected static $db_fields = array (
+		'id', 'room_id', 'player_id', 
+		'equipment_card_id', 'character_card_id', 'status_card_id'
+	);
+	public $room_id, $player_id;
+	public $equipment_card_id, $character_card_id, $status_card_id;
+	public static function find_by_room_id($room_id){
+		return static::find_by_field_index(1, $room_id);
+	}
+}
 ?>
