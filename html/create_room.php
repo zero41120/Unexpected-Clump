@@ -8,7 +8,7 @@
 <?php
 	// Create new user, aka judge
 	$user = new User();
-	$name = empty($_GET['playerName'])? "Host" : safe_input($_GET['playerName']);
+	$name = empty($_GET['name'])? "Host" : safe_input($_GET['name']);
 	$user->name = $name;
 	$user->save(); // Auto generate a user_id
 
@@ -38,8 +38,8 @@
 	}
 
 	$info = '{';
-	$info .= '"room_id": '   . $room->id  . ',';
-	$info .= '"player_id": ' . $room->player_id . '';
+	$info .= '"room": '   . $room->id  . ',';
+	$info .= '"player": ' . $room->player_id . '';
 	$info .= '}';
 	echo($info);
 ?>

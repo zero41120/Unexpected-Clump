@@ -57,7 +57,7 @@
 
 
 <?php
-
+/*
 	echo("You joined room " . $room->id);
 	echo("<br/>The host of the room is " . $judge->name);
 
@@ -67,4 +67,5 @@
 		$user = User::find_by_id($room_user->user_id);
 		echo("<br/>Player :" . $user->name . " is in the room");
 	}
+*/
 ?>
