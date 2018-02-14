@@ -65,5 +65,12 @@ class Submitted_info extends DatabaseObject{
 	public static function find_by_room_id($room_id){
 		return static::find_by_field_index(1, $room_id);
 	}
+	public static function delete_by_room_id($room_id){
+		global $db_connect;
+		$query = "DELETE FROM " . static::$table_name;
+		$query .= " WHERE room_id = " . $room_id; 
+		$db_connect->query ( $query );
+		return true;
+	}
 }
 ?>
