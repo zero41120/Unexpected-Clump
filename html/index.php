@@ -19,7 +19,7 @@
 		$themes = Theme::find_all();
 		echo("<div id=\"theme_list\" hidden>");
 		echo(json_encode($themes));
-		echo("<div>");
+		echo("</div>");
 	?>
 
 	<body>
