@@ -2,10 +2,7 @@
 	//error_reporting(E_ALL);
 	//ini_set('display_errors', '1');
     require_once('../includes/config.php');
-?>
 
-
-<?php
 	// Create new user, aka judge
 	$user = new User();
 	$name = empty($_GET['name'])? "Host" : safe_input($_GET['name']);
