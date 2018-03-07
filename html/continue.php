@@ -1,6 +1,6 @@
 <?php
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', '1');
     require_once('../includes/config.php');
 ?>
 
@@ -37,6 +37,7 @@
 			"winner": "WINNER"
 		}';
 	} else {
+
 		if(!empty(Submitted_info::submitted($player->id))){
 		 	echo('{"wait": true}');
 		} else {

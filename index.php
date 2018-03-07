@@ -42,12 +42,6 @@
 			margin-top:10px;
 			}
 		</style>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="scripts/shared.js"></script>
-    <script type="text/javascript" src="scripts/card_select.js"></script>
-
-		<link type="text/css" rel="stylesheet" href="css/shared.css">
-		<link type="text/css" rel="stylesheet" href="css/card_select.css">
 	</head>
 	<?php 
 		$themes = Theme::find_all();
@@ -165,42 +159,59 @@
 			
 			<div class="view" id="rules_view">
 				
-						<div class="message"><p class="a">Rules:</p></div>
+						<div class="message"><p class="b">Rules:</p></div>
+						<p class="bi">
+					
+							First the Judge creates a room.
+
+						</p>	
 				
 			</div>
 			
 			
-
-
 			<div class="view" id="card_select_view">
+			
 				<div id="scroll_container"></div>
-				<div class="button" id="submit_button"><span class="button_label">Submit</span></div>
-				<div class="button" id="clear_button"><span class="button_label">Clear</span></div>
-
+			<p class="b"> 	
+				<button type="button" class="btn btn-primary" id="submit_button">Submit</button>
+				<button type="button" class="btn btn-primary" id="clear_button">Clear</button>
+				<script type="text/javascript" src="javascript/card_select.js"></script>
+			</p>
 			</div>
+			
+			
+			
+			
 			<div class="view" id="judge_wait_view">
-				<div class="message">You are judging for: Room <span id="room_label"></span></div>
-				<div class="message">Select a winner after all players have chosen their cards.</div>
-				<div class="button" id="select_winner_button"><span class="button_label">Select Winner</span></div>
+			<p class="b">
+				You are judging for: Room <span id="room_label"></span>. 
+				Select a winner after all players have chosen their cards.
+				<button type="button" class="btn btn-primary" id="select_winner_button">Select Winner</button>
+			</p>
 			</div>
 			<div class="view" id="select_winner_view">
+			<p class="b">
 				<div class="message">Select the winner:</div>
 				<div id="player_list"></div>
 				<div class="button" id="judge_back_button"><span class="button_label">Back</span></div>
 				<div class="button" id="return_button"><span class="button_label">Home</span></div>
-
-</div>
+			</p>
+			</div>
 			<div class="view" id="continue_view">
-				<div class="player_message">
-					<div class="message">You have selected:</div>
-					<div class="scroll" id="selection_list"></div>
-					<div class="message">Press continue after judging has ended to start a new round.</div>
-				</div>
+				<p class="b">
+					You have selected:
+				</p>
+					<div id="selection_list"></div>
+				<p class="b">
+					Press continue after judging has ended to start a new round.
+				</p>
 				<div class="judge_message">
 					<div class="message">Press continue to start a new round.</div>
 				</div>
-				<div class="button" id="continue_button"><span class="button_label">Continue</span></div>
-				<div class="button" id="exit_button"><span class="button_label">Exit Room</span></div>
+				<p class="b">
+				<button type="button" class="btn btn-success" id="continue_button">Continue</button>
+				<button type="button" class="btn btn-danger" id="exit_button">Exit Room</button>
+				</p>
 			</div>
 			<div class="view" id="error_view">
 				<div class="message" id="error_message">An error has occurred: <span id="error_text"></span>.</div>
