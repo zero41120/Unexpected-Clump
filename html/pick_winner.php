@@ -5,6 +5,7 @@
 ?>
 
 <?php
+
 	// Check request integrity
 	if(empty($_GET['judge'])){
 		die("Pick winner request failed due to missing judge number");
@@ -12,9 +13,7 @@
 	if(empty($_GET['winner'])){
 		die("Pick winner request failed due to missing winner number");
 	}
-?>
 
-<?php
 
 	safe_array($_GET);
 	$judge = User::find_by_id($_GET['judge']);
@@ -32,13 +31,14 @@
 	$room->user_id = $winner->id;
 	$room->save();
 
-	$room_user = Room::find_by_second_id($winner->id);
+
+	Submitted_info::delete_by_room_id($room->id);
+
+	$room_user = Room_user::find_by_second_id($winner->id);
+	$room_user = $room_user[0];
+	var_dump($room_user);
+
 	$room_user->user_id = $judge->id;
 	$room_user->save();
 
-	echo("200 (OK)");
-
-	# $judge should be the PLAYERID of the judge, don't allow winner to be submitted otherwise
-	# $winner is the PLAYERID of the winner picked by the judge
-	# should just return an empty 200 (OK) response
 ?>
