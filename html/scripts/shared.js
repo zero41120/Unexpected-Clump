@@ -37,15 +37,14 @@ function createViewChange($button,$view){
 
 function createRoom(){
 	var name = $('#host_name_input').val();
-	var themeList = $('#theme_checkbox_list input[checkbox]').toArray().filter(e => e.checked).map(e => e['data-theme']);
+	var themeList = $('#theme_checkbox_list input[type="checkbox"]').toArray().filter(e => e.checked).map(e => e.dataset['theme'])
 	window.player_name = name;
-	var url = `create_room.php?name=${encodeURIComponent(name)}&themeList=${encodeURIComponent(themeList.join(','))}`;
+	var url = `create_room.php?name=${encodeURIComponent(name)}&themeList=${themeList.join(',')}`;
 	request(url).then(json => {
 		console.log("Create Room Response:" + json);
 		var response = JSON.parse(json);
 		window.room = response.room;
 		window.player = response.player;
-		window.judge = true; // using until continue.php is changed to choose a new judge
 		$('#room_label').text(response.room);
 		$('.player_message').hide();
 		$('.judge_message').show();
@@ -76,15 +75,17 @@ function beginJudging(){
 		var players = JSON.parse(json);
 		var createPlayer = player => `<div class="button player_button">${player.name}</div>`;
 		$('#player_list').html(players.map(createPlayer).join(''));
-		$('#player_list .player_button').each((i,e) => $(e).click(function(){chooseWinner(players[i].id)}));
+		$('#player_list .player_button').each((i,e) => {
+			$(e).click(function(){chooseWinner(players[i].player)});
+		});
 		changeView($('#select_winner_view'));
 	}).catch(e => showError(e));
 };
 
 function chooseWinner(winner){
-	request(`pick_winner.php?judge=${window.playerr}winner=${winner}`).then(json => {
+	request(`pick_winner.php?judge=${window.player}&winner=${winner}`).then(json => {
 		changeView($('#continue_view'));
-	}).catch(e => showError(e));
+	}).catch(e => changeView($('#continue_view')))//.catch(e => showError(e));
 };
 
 function nextRound(){
@@ -92,9 +93,10 @@ function nextRound(){
 		console.log("Next Round Response:" + json);
 		var response = JSON.parse(json);
 		if(response.wait) return alert('wait for the judge to choose a winner');
-		if(response.judge || window.judge){
+		if(response.judge){
 			$('.player_message').hide();
 			$('.judge_message').show();
+			$('#room_label').text(window.room);
 			changeView($('#judge_wait_view'));
 		}else{
 			createCards(response.cards);
