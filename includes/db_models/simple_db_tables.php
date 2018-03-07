@@ -72,5 +72,8 @@ class Submitted_info extends DatabaseObject{
 		$db_connect->query ( $query );
 		return true;
 	}
+	public static function submitted($player_id){
+		return static::find_by_field_index(2, $player_id, false);
+	}
 }
 ?>

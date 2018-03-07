@@ -36,6 +36,8 @@
 	$room_user->user_id = $judge->id;
 	$room_user->save();
 
+	Submitted_info::delete_by_room_id($room->id);
+
 	echo("200 (OK)");
 
 	# $judge should be the PLAYERID of the judge, don't allow winner to be submitted otherwise
