@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="javascript/shared.js"></script>
+		<script type="text/javascript" src="scripts/shared.js"></script>
 		<link type="text/css" rel="stylesheet" href="css/shared.css">
 		<link type="text/css" rel="stylesheet" href="css/card_select.css">
 	</head>
@@ -61,7 +61,7 @@
 				<div id="scroll_container"></div>
 				<div class="button" id="submit_button"><span class="button_label">Submit</span></div>
 				<div class="button" id="clear_button"><span class="button_label">Clear</span></div>
-				<script type="text/javascript" src="javascript/card_select.js"></script>
+				<script type="text/javascript" src="scripts/card_select.js"></script>
 			</div>
 			<div class="view" id="judge_wait_view">
 				<div class="message">You are judging for: Room <span id="room_label"></span></div>
