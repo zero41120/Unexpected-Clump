@@ -85,7 +85,7 @@ function beginJudging(){
 function chooseWinner(winner){
 	request(`pick_winner.php?judge=${window.player}&winner=${winner}`).then(json => {
 		changeView($('#continue_view'));
-	}).catch(e => changeView($('#continue_view')))//.catch(e => showError(e));
+	}).catch(e => showError(e));
 };
 
 function nextRound(){
