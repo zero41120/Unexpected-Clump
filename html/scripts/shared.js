@@ -115,7 +115,7 @@ function initButtons(){
 	createViewChange($('#return_button'),$('#home_view'));
 	
 	$('#rules_button').click(function(){
-		$('#rules_text').show();
+		$('#rules_text').toggle();
 	});
 	
 	$('#submit_create_button').click(createRoom);
