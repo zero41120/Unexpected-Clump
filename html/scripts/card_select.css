@@ -1,0 +1,49 @@
+
+.card {
+	display: inline-block;
+	height: 350px;
+	width: 250px;
+	margin: .5em;
+	color: #CCCCCC;
+	background: url(../images/card.png) 0 0;
+	background-repeat: no-repeat;
+    background-size: 250px 350px;
+	border: 5px solid #CCCCCC;
+	border-radius: 5px;
+	text-align: center;
+	vertical-align: text-bottom;
+
+	font-weight: bold;
+	font-size: 150%;
+	padding-top: 5%;
+	cursor: pointer;
+	word-wrap: break-word;
+	white-space: pre-line;
+	
+}
+
+
+
+
+.selected {
+	border-color: #00CC00;
+	color: #00CC00;
+}
+
+#card_select_view .selected:hover {
+	background-color: #CCCCCC;
+}
+
+#card_select_view .card:not(.selected):hover {
+	border-color: #333333;
+	color: #333333;
+	background-color: #CCCCCC;
+}
+
+#submit_button{
+	background-color: #00CC00;
+}
+
+#clear_button{
+	background-color: #CC0000;
+}
