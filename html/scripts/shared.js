@@ -55,6 +55,9 @@ function createViewChange($button,$view){
 function createRoom(){
     hideCreateJoin();
 	var name = $('#host_name_input').val();
+	if(name.length === 0){
+		return alert('Name cannot be left blank');
+	}
 	var themeList = $('#theme_checkbox_list input[type="checkbox"]').toArray().filter(e => e.checked).map(e => e.dataset['theme'])
 	window.player_name = name;
 	var url = `create_room.php?name=${encodeURIComponent(name)}&themeList=${themeList.join(',')}`;
@@ -76,6 +79,9 @@ function joinRoom(){
 	var room = $('#room_number_input').val();
 	if(name.length === 0){
 		return alert('Name cannot be left blank');
+	}
+	if(room.length === 0){
+		return alert('Room cannot be left blank');
 	}
 	window.player_name = name;
 	window.room = room;
