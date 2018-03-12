@@ -7,6 +7,9 @@
 	if(empty($_GET['room'])){
 		bad_request("Join room request failed due to missing room number");
 	}
+	if(!is_numeric($_GET['room'])){
+		bad_request("Join room failed because input is not a number.");
+	}
 
 	// Create a new uesr # TODO make sure that it's no longer than 128 char
 	$player = new User();
@@ -14,7 +17,7 @@
 	$player->save();
 
 	// Select the room # TODO make sure the room exists.
-	$room = Room::find_by_id(is_integer(safe_input($_GET['room'])));
+	$room = Room::find_by_id(safe_input($_GET['room']));
 	if(empty($room)){
 		bad_request("Join room request failed because room " . safe_input($_GET['room']) . " does not exist.");
 	}
