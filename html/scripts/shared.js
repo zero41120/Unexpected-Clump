@@ -2,15 +2,19 @@
 
 
 function showCreateJoin(){
-    abtn = document.getElementById("nav_button").style.display = "none";
-    cbtn = document.getElementById("create_room_button").style.display = "block";
-    jbtn = document.getElementById("join_room_button").style.display = "block";
+    document.getElementById("show_nav_button").style.display = "none";
+    document.getElementById("hide_nav_button").style.display = "block";
+    document.getElementById("create_room_button").style.display = "block";
+    document.getElementById("join_room_button").style.display = "block";
+    document.getElementById("rules_button").style.display = "block";
 }
 
 function hideCreateJoin(){
-    cbtn = document.getElementById("create_room_button").style.display = "none";
-    jbtn = document.getElementById("join_room_button").style.display = "none";
-    abtn = document.getElementById("nav_button").style.display = "block";
+    document.getElementById("show_nav_button").style.display = "block";
+    document.getElementById("hide_nav_button").style.display = "none";
+    document.getElementById("create_room_button").style.display = "none";
+    document.getElementById("join_room_button").style.display = "none";
+    document.getElementById("rules_button").style.display = "none";
 }
 
 function request(options){
@@ -37,9 +41,10 @@ function showError(error){
 };
 
 function createCardList(cards){
-	var getName = card => card.name || card.description || '';
-	var getCardBody = card => card.image ? `<img src="${card.image}" alt="${getName(card).replace(/"/g,'\\"')}">` : getName(card);
-	var createCard = card => `<div class="card${card.image ? '' : ' missing_image'}" data-id="${card.id}">${getCardBody(card)}</div>`;
+	var getName = card => card.name? card.name : 'Missing Name';
+	var getDesc = card => cards.description? ':' + cards.description : '';
+	var getCardBody = card => getName(card) + getDesc(card);
+	var createCard = card => `<div class="card" style="background: url(${card.image})" data-id="${card.id}">` + getCardBody(card) + `</div>`;
 	return cards.map(createCard).join('');
 };
 
