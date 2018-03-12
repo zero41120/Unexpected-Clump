@@ -27,30 +27,11 @@
 		<script type="text/javascript" src="scripts/shared.js"></script>
 		<script type="text/javascript" src="scripts/card_select.js"></script>
 		
-
-		<style>
-			p.a {
-				margin: 35px 90px 90px 90px;
-			}
-
-			p.b {
-				font-family: "Lucida Console", Monaco, monospace;
-				margin-right: 80px;
-				margin-left: 80px;
-				margin-top:50px;
-			}	
-			p.bi {
-				font-family: "Lucida Console", Monaco, monospace;
-				margin-right: 80px;
-				margin-left: 80px;
-				margin-top:10px;
-			}
-		</style>
 	</head>
 	<body onload="showCreateJoin()">
 		<div id="content">
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-				<a class="navbar-brand text-white"  style= "cursor:pointer" id="return_button" >Unexpected Clump</a>
+				<a class="navbar-brand text-white"  style= "cursor:pointer" >Unexpected Clump</a>
 				<div>
 					<ul class="navbar-nav">
 						<li class="nav-item">
@@ -73,7 +54,7 @@
 			</nav>
 
 			<div class="view current_view" id="home_view">
-				<p class="b"> 
+				<p class="normal_text"> 
 					Welcome to Unexpected Clump!<br>
 
 					A game created for CMPS 183. 
@@ -82,7 +63,7 @@
 			
 			<div class="view" id="create_room_view">
 				<div id="host_name_container">
-					<p class="b"> 
+					<p class="normal_text"> 
 						<span class="input_label">Enter Name:</span>
 						<span class="input_text"><input type="text" id="host_name_input"></input></span>
 					</p> 
@@ -93,19 +74,19 @@
 
 			<div class="view" id="join_room_view">
 				<div id="player_name_container">
-					<p class="b"> 
+					<p class="normal_text"> 
 						<span class="input_label">Enter Name:</span>
 						<span class="input_text"><input type="text" id="player_name_input"></input></span>
 					</p> 
 				</div>
 				<div id="room_number_container">
-					<p class="bi"> 
+					<p class="normal_text"> 
 						<span class="input_label">Enter Room:</span>
 						<span class="input_text"><input type="text" id="room_number_input"></input></span>
 					</p> 
 				</div>
 				<div class="button" id="submit_join_button">
-					<p class="bi">
+					<p class="button_text">
 						<span class="button_label">Join Room</span>
 					</p>
 				</div>

@@ -1,4 +1,18 @@
+p.a {
+	margin: 35px 90px 90px 90px;
+}
 
+p.normal_text {
+	font-family: "Lucida Console", Monaco, monospace;
+	margin-right: 80px;
+	margin-left: 80px;
+	margin-top: 20px;
+}	
+p.button_text {
+	font-family: "Lucida Console", Monaco, monospace;
+	margin-top:10px;
+}
+			
 .view:not(.current_view){
 	display: none;
 }
