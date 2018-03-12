@@ -2,16 +2,11 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
     require_once('../includes/config.php');
-?>
 
-<?php
 	// Check request integrity
 	if(empty($_GET['room'])){
-		die("Join room request failed due to missing room number");
+		bad_request("Join room request failed due to missing room number");
 	}
-?>
-
-<?php
 
 	// Create a new uesr # TODO make sure that it's no longer than 128 char
 	$player = new User();
@@ -19,7 +14,10 @@
 	$player->save();
 
 	// Select the room # TODO make sure the room exists.
-	$room = Room::find_by_id(safe_input($_GET['room']));
+	$room = Room::find_by_id(is_integer(safe_input($_GET['room'])));
+	if(empty($room)){
+		bad_request("Join room request failed because room " . safe_input($_GET['room']) . " does not exist.");
+	}
 	$judge = User::find_by_id($room->user_id);
 
 	// Save this player room-user information
@@ -53,19 +51,4 @@
 	$json_str .= '},';
 	$json_str .= '"player":' . '"' . $player->id . '"}';
 	echo($json_str);
-?>
-
-
-<?php
-/*
-	echo("You joined room " . $room->id);
-	echo("<br/>The host of the room is " . $judge->name);
-
-	// Show all user in this room
-	$room_users = Room_user::find_by_first_id($room->id);
-	foreach ($room_users as $room_user) {
-		$user = User::find_by_id($room_user->user_id);
-		echo("<br/>Player :" . $user->name . " is in the room");
-	}
-*/
 ?>

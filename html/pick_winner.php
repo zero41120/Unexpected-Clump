@@ -2,27 +2,24 @@
 	//error_reporting(E_ALL);
 	//ini_set('display_errors', '1');
     require_once('../includes/config.php');
-?>
-
-<?php
 
 	// Check request integrity
 	if(empty($_GET['judge'])){
-		die("Pick winner request failed due to missing judge number");
+		bad_request("Pick winner request failed due to missing judge number");
 	}
 	if(empty($_GET['winner'])){
-		die("Pick winner request failed due to missing winner number");
+		bad_request("Pick winner request failed due to missing winner number");
 	}
 
 
 	safe_array($_GET);
 	$judge = User::find_by_id($_GET['judge']);
 	if(empty($judge)){
-		die("Pick winner request failed due to invalid judge number");
+		bad_request("Pick winner request failed due to invalid judge number");
 	}
 	$winner = User::find_by_id($_GET['winner']);
 	if(empty($winner)){
-		die("Pick winner request failed due to invalid winner number");
+		bad_request("Pick winner request failed due to invalid winner number");
 	}
 
 

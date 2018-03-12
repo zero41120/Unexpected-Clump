@@ -2,34 +2,28 @@
 	//error_reporting(E_ALL);
 	//ini_set('display_errors', '1');
     require_once('../includes/config.php');
-?>
 
-<?php
 	// Check request integrity
 	if(empty($_GET['player'])){
-		die("Continue request failed due to missing player number");
+		bad_request("Continue request failed due to missing player number");
 	}
 
 	if(empty($_GET['room'])){
-		die("Continue request failed due to missing room number");
+		bad_request("Continue request failed due to missing room number");
 	}
 
 	safe_array($_GET);
 
 	$player = User::find_by_id($_GET['player']);
 	if(empty($player)){
-		die("Continue request fail due to invalid player number");
+		bad_request("Continue request fail due to invalid player number");
 	}
 
 	$room = Room::find_by_id($_GET['room']);
 	if(empty($room)){
-		die("Continue request fail due to invalid room number");
+		bad_request("Continue request fail due to invalid room number");
 	}
 
-?>
-
-<?php
-	
 	// This is judge
 	if($room->user_id == $player->id){
 		echo '{

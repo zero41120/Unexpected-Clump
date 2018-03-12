@@ -43,8 +43,7 @@ function __autoload($class_name) {
 			return;
 		}
 	}
-	die ( "The file {$class_name}.php could not be found." );
+	die( "The file {$class_name}.php could not be found." );
 	
 }
 ?>
-

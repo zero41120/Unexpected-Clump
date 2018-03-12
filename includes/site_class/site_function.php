@@ -16,4 +16,9 @@ function get_json($name, $array){
 	return $str;
 }
 
+function bad_request($message){
+	http_response_code(400);
+	die($message);
+}
+
 ?>
