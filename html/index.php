@@ -31,7 +31,7 @@
 	<body onload="showCreateJoin()">
 		<div id="content">
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-				<a class="navbar-brand text-white"  style= "cursor:pointer" >Unexpected Clump</a>
+				<a class="navbar-brand text-white return_button"  style= "cursor:pointer" >Unexpected Clump</a>
 				<div>
 					<ul class="navbar-nav">
 						<li class="nav-item">
@@ -118,7 +118,7 @@
 				<div class="button" id="judge_back_button">
 					<span class="button_label">Back</span>
 				</div>
-				<div class="button" id="return_button">
+				<div class="button return_button">
 					<span class="button_label">Home</span>
 				</div>
 			</div>
@@ -142,7 +142,7 @@
 
 			<div class="view" id="error_view">
 				<div class="message" id="error_message">An error has occurred: <span id="error_text"></span>.</div>
-				<div class="button" id="return_button"><span class="button_label">Home</span></div>
+				<div class="button return_button"><span class="button_label">Home</span></div>
 			</div>
 			
 		</div>

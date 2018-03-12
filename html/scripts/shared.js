@@ -30,6 +30,8 @@ function request(options){
 function changeView($view){
 	$('.current_view').removeClass('current_view');
 	$view.addClass('current_view');
+	if($view.attr('id') === 'home_view') showCreateJoin();
+	else hideCreateJoin();
 	window.scrollTo(0,0);
 };
 
@@ -140,7 +142,7 @@ function initButtons(){
 	createViewChange($('#join_room_button'),$('#join_room_view'));
 	createViewChange($('#judge_back_button'),$('#judge_wait_view'));
 	createViewChange($('#exit_button'),$('#home_view'));
-	createViewChange($('#return_button'),$('#home_view'));
+	createViewChange($('.return_button'),$('#home_view'));
 	
 	$('#rules_button').click(function(){
 		$('#rules_text').toggle();
