@@ -18,6 +18,7 @@
 		<link type="text/css" rel="stylesheet" href="css/shared.css">
 		<link type="text/css" rel="stylesheet" href="css/card_select.css">
 		<!-- Javascript -->
+		<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -46,33 +47,26 @@
 			}
 		</style>
 	</head>
-	<?php 
-		$themes = Theme::find_all();
-		echo("<div id=\"theme_list\" hidden>");
-		echo(json_encode($themes));
-		echo("</div>");
-	?>
-
 	<body onload="showCreateJoin()">
 		<div id="content">
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 				<a class="navbar-brand text-white"  style= "cursor:pointer" id="return_button" >Unexpected Clump</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar3">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="navbar-collapse collapse" id="navbar3">
+				<div>
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link" style= "cursor:pointer" id="nav_button" onclick="showCreateJoin()">→ <span class="sr-only">Home</span></a>
+							<a class="nav-link" style= "cursor:pointer" id="show_nav_button" onclick="showCreateJoin()">→ <span class="sr-only">Home</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" style= "cursor:pointer" id="create_room_button" >Create <span class="sr-only">Home</span></a>
+							<a class="nav-link" style= "cursor:pointer" id="create_room_button" >Create</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" style= "cursor:pointer" id="join_room_button">Join</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" style= "cursor:pointer" id="rules_button">Rules</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" style= "cursor:pointer" id="hide_nav_button" onclick="hideCreateJoin()">← <span class="sr-only">Home</span></a>
 						</li>
 					</ul>
 				</div>

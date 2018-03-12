@@ -5,9 +5,8 @@
 	width: 250px;
 	margin: .5em;
 	color: #CCCCCC;
-	background: url(../images/card.png) 0 0;
-	background-repeat: no-repeat;
-    background-size: 250px 350px;
+	background-repeat: no-repeat !important;
+    background-size: 250px 350px !important;
 	border: 5px solid #CCCCCC;
 	border-radius: 5px;
 	text-align: center;
