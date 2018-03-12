@@ -25,8 +25,36 @@
 
 
 .selected {
-	border-color: #00CC00;
-	color: #00CC00;
+	background-size: cover !important;
+	width: 900px !important;
+	padding-top: 120px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.selected .card-name{
+	font-size: 28px;
+	margin: .25em;
+}
+
+.selected .card-ability, .selected .card-description{
+	margin-top: 20px;
+	font-size: 24px;
+}
+
+#characters_list .selected {
+	background-image: url("/images/description3.png") !important;
+	color: #3e5e76;
+}
+
+#equipment_list .selected {
+	background-image: url("/images/description2.png") !important;
+	color: #48763f;
+}
+
+#status_list .selected {
+	background-image: url("/images/description1.png") !important;
+	color: #74423d;
 }
 
 #card_select_view .selected:hover {
