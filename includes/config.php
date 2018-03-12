@@ -3,6 +3,8 @@
 defined ( 'DS' ) ? null : define ( 'DS', DIRECTORY_SEPARATOR );
 if(file_exists('C:'.DS.'xampp'.DS.'php'.DS.'www')){
 	defined ( 'SITE_ROOT' ) ? null : define ( 'SITE_ROOT', 'C:'.DS.'xampp'.DS.'php'.DS.'www');
+} else if(file_exists(DS.'var'.DS.'www')){
+	defined ( 'SITE_ROOT' ) ? null : define ( 'SITE_ROOT', DS.'var'.DS.'www');
 } else {
 	defined ( 'SITE_ROOT' ) ? null : define ( 'SITE_ROOT', DS.'Applications'.DS.'MAMP'.DS.'htdocs');
 }
