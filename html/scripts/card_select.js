@@ -12,7 +12,10 @@ function resetSubmit(){
 
 function createCards(cards){
 	resetSubmit();
-	allCards = [...cards['characters'],...cards['equipment'],...cards['status']];
+	cards['characters'].forEach(c => c.type = 'char');
+	cards['equipment'].forEach(c => c.type = 'equip');
+	cards['status'].forEach(c => c.type = 'status');
+	allCards = [cards['characters'],cards['equipment'],cards['status']];
 	var createScroll = (name,key) => `<div class="scroll" id="${name}_list" data-key="${key}">${createCardList(cards[name])}</div>`;
 	var html = createScroll('characters','char')+createScroll('equipment','equip')+createScroll('status','status');
 	$('#scroll_container').html(html);
@@ -44,7 +47,7 @@ function initCardSelectButtons(){
 		if(Object.keys(submit).every(key => submit[key] !== null)){
 			url = `submit_cards.php?player=${window.player}&room=${window.room}&${Object.keys(submit).map(key => key+'='+submit[key]).join('&')}`;
 			request(url).then(d => {
-				$('#selection_list').html(createCardList(allCards.filter(card => ~Object.values(submit).indexOf(card.id))));
+				$('#selection_list').html(createCardList(allCards.map(cat => cat.find(card => submit[card.type] === card.id))));
 				changeView($('#continue_view'));
 			}).catch(e => showError(e));
 		}else{

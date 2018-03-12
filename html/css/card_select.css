@@ -4,24 +4,26 @@
 	height: 350px;
 	width: 250px;
 	margin: .5em;
-	color: #CCCCCC;
+	color: #FFFFFF;
 	background-repeat: no-repeat !important;
     background-size: 250px 350px !important;
 	border: 5px solid #CCCCCC;
 	border-radius: 5px;
 	text-align: center;
 	vertical-align: text-bottom;
-
 	font-weight: bold;
 	font-size: 150%;
-	padding-top: 5%;
+	padding-top: 170px;
+	padding-left: 40px;
+	padding-right: 35px
 	cursor: pointer;
 	word-wrap: break-word;
 	white-space: pre-line;
-	
 }
 
-
+.card .card-ability, .card .card-description{
+	font-size: 16px;
+}
 
 
 .selected {

@@ -30,6 +30,6 @@
 .scroll {
 	overflow: auto;
 	white-space: nowrap;
-	height: 30%;
+	height: 375px;
 	margin-bottom: 25px;
 }

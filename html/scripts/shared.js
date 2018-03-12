@@ -1,6 +1,4 @@
 
-
-
 function showCreateJoin(){
     document.getElementById("show_nav_button").style.display = "none";
     document.getElementById("hide_nav_button").style.display = "block";
@@ -41,10 +39,10 @@ function showError(error){
 };
 
 function createCardList(cards){
-	var getName = card => card.name? card.name : 'Missing Name';
-	var getDesc = card => cards.description? ':' + cards.description : '';
-	var getCardBody = card => getName(card) + getDesc(card);
-	var createCard = card => `<div class="card" style="background: url(${card.image})" data-id="${card.id}">` + getCardBody(card) + `</div>`;
+	var getName = card => `<div class="card-${card.name ? 'name' : 'description'}">${card.name || card.description || ''}</div>`;
+	var getAbility = card => `<div class="card-ability">${card.ability || ''}</div>`;
+	var getCardBody = card => getName(card) + getAbility(card);
+	var createCard = card => `<div class="card" style="background: url(${card.image})" data-id="${card.id}">${getCardBody(card)}</div>`;
 	return cards.map(createCard).join('');
 };
 
@@ -76,6 +74,9 @@ function joinRoom(){
     hideCreateJoin();
 	var name = $('#player_name_input').val();
 	var room = $('#room_number_input').val();
+	if(name.length === 0){
+		return alert('Name cannot be left blank');
+	}
 	window.player_name = name;
 	window.room = room;
 	var url = `join_room.php?name=${encodeURIComponent(name)}&room=${encodeURIComponent(room)}`;
