@@ -1,4 +1,18 @@
 
+
+
+function showCreateJoin(){
+    abtn = document.getElementById("nav_button").style.display = "none";
+    cbtn = document.getElementById("create_room_button").style.display = "block";
+    jbtn = document.getElementById("join_room_button").style.display = "block";
+}
+
+function hideCreateJoin(){
+    cbtn = document.getElementById("create_room_button").style.display = "none";
+    jbtn = document.getElementById("join_room_button").style.display = "none";
+    abtn = document.getElementById("nav_button").style.display = "block";
+}
+
 function request(options){
 	return new Promise((res,rej) => {
 		if(typeof options === 'string') options = {url: options};
@@ -36,6 +50,7 @@ function createViewChange($button,$view){
 };
 
 function createRoom(){
+    hideCreateJoin();
 	var name = $('#host_name_input').val();
 	var themeList = $('#theme_checkbox_list input[type="checkbox"]').toArray().filter(e => e.checked).map(e => e.dataset['theme'])
 	window.player_name = name;
@@ -53,6 +68,7 @@ function createRoom(){
 };
 
 function joinRoom(){
+    hideCreateJoin();
 	var name = $('#player_name_input').val();
 	var room = $('#room_number_input').val();
 	window.player_name = name;

@@ -53,7 +53,7 @@
 		echo("</div>");
 	?>
 
-	<body>
+	<body onload="showCreateJoin()">
 		<div id="content">
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 				<a class="navbar-brand text-white"  style= "cursor:pointer" id="return_button" >Unexpected Clump</a>
@@ -62,7 +62,10 @@
 				</button>
 				<div class="navbar-collapse collapse" id="navbar3">
 					<ul class="navbar-nav">
-						<li class="nav-item active">
+						<li class="nav-item">
+							<a class="nav-link" style= "cursor:pointer" id="nav_button" onclick="showCreateJoin()">→ <span class="sr-only">Home</span></a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link" style= "cursor:pointer" id="create_room_button" >Create <span class="sr-only">Home</span></a>
 						</li>
 						<li class="nav-item">
@@ -90,19 +93,7 @@
 						<span class="input_text"><input type="text" id="host_name_input"></input></span>
 					</p> 
 				</div>
-				<div id="room_theme_container">
-					<p class="bi">
-						<label class="checkbox-inline">
-						<input checked data-toggle="toggle" type="checkbox" data-theme="0" checked> </input>  First  
-						</label>
-						<label class="checkbox-inline">
-						<input checked data-toggle="toggle" type="checkbox" data-theme="1" checked> </input>  Second  
-						</label>
-						<label class="checkbox-inline">
-						<input checked data-toggle="toggle" type="checkbox" data-theme="2" checked> </input>  Third  
-						</label>
-					</p>
-				</div>
+				
 				<div class="button" id="submit_create_button">Create</div>
 			</div>
 
