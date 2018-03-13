@@ -32,7 +32,7 @@
 	};
 
 	function join_room(){
-		var url = `../join_room.php?name=tester&room=61`;
+		var url = `../requests/join_room.php?name=tester&room=61`;
 		console.log(url);
 		request(url).then(json => {
 			console.log("response:" + json);

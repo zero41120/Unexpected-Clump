@@ -32,7 +32,7 @@
 	};
 
 	function create_room(){
-	var url = `../create_room.php?name=test_host&themeList=1,2,3,4`;
+	var url = `../requests/create_room.php?name=test_host&themeList=1,2,3,4`;
 		console.log(url);
 		request(url).then(json => {
 			console.log("response:" + json);
