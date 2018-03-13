@@ -21,4 +21,18 @@ function bad_request($message){
 	die($message);
 }
 
+function restricted(){
+	// https://stackoverflow.com/questions/15436948
+
+	// Protect from non local access
+	if ($_SERVER['SERVER_ADDR'] != $_SERVER['REMOTE_ADDR']){
+		bad_request('Restricted access to host only.');
+	}
+	// Protect from non ajax access
+	define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+	if(!IS_AJAX) { bad_request('Restricted access to ajax request only.'); }
+	$pos = strpos($_SERVER['HTTP_REFERER'],getenv('HTTP_HOST'));
+	if($pos===false){ bad_request('Restricted access'); }
+}
+
 ?>
