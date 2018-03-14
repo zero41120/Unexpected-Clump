@@ -56,8 +56,13 @@
 			<div class="view current_view" id="home_view">
 				<p class="normal_text"> 
 					Welcome to Unexpected Clump!<br>
-
-					A game created for CMPS 183. 
+					A game created for CMPS 183.<br><br>
+					Developed By: <br><br>
+					Shiuan (Product owner, Backend Developer)<br>
+					Andrew (Scrum Master)<br>
+					Jerod  (Public Relation)<br> 
+					Nathan (Frontend Developer)<br>
+					Richard (Art Director)<br>
 				</p>
 			</div>
 			
