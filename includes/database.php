@@ -18,8 +18,8 @@ class MySQLDatabase {
 		try {
 			$this->open_connection ($server, $user, $pass, $db_name, $db_port);
 		} catch (Exception $e) {
-			//header ( "Location: " . "maintain.php" );
-			die ( "Database connection failed: " . mysqli_connect_error () . "(" . mysqli_connect_errno () . ")" );
+			header ( "Location: " . "maintain.php" );
+			//die ( "Database connection failed: " . mysqli_connect_error () . "(" . mysqli_connect_errno () . ")" );
 			exit ();
 		}
 		

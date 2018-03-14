@@ -16,7 +16,7 @@ function hideCreateJoin(){
 }
 
 function request(options){
-	options = "requests/" + options;
+	options = "/requests/" + options;
 	return new Promise((res,rej) => {
 		if(typeof options === 'string') options = {url: options};
 		if(!options.url) return rej('no url given for request');
