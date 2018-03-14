@@ -104,7 +104,22 @@ function beginJudging(){
 	request(`begin_judging.php?judge=${window.player}`).then(json => {
 		console.log("Begin Judging Response:" + json);
 		var players = JSON.parse(json);
-		var createPlayer = player => `<div class="button player_button">${player.name}</div>`;
+		var getCard = arr => {
+			var card = {
+				"image": arr[0],
+				"id": arr[1],
+				"theme_id": arr[2],
+				"script_id": arr[3]
+			};
+			if(arr.length === 5){
+				card['description'] = arr[4];
+			}else{
+				card['name'] = arr[4];
+				card['ability'] = arr[5];
+			}
+			return card;
+		};
+		var createPlayer = player => `<div class="button player_button">${player.name}</div><div class="scroll">${createCardList(Object.keys(player.cards).map(k => getCard(player.cards[k])))}</div>`;
 		$('#player_list').html(players.map(createPlayer).join(''));
 		$('#player_list .player_button').each((i,e) => {
 			$(e).click(function(){chooseWinner(players[i].player)});
