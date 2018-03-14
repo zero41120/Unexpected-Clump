@@ -1,6 +1,6 @@
 <?php
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', '1');
     require_once('../../includes/config.php');
 	restricted();
 
@@ -34,6 +34,7 @@
 
 	$room_user = Room_user::find_by_second_id($winner->id);
 	$room_user = $room_user[0];
+	var_dump($room_user);
 
 	$room_user->user_id = $judge->id;
 	$room_user->save();
