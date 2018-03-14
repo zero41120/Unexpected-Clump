@@ -20,7 +20,7 @@ class MySQLDatabase {
 		} catch (Exception $e) {
 			header ( "Location: " . "maintain.php" );
 			//die ( "Database connection failed: " . mysqli_connect_error () . "(" . mysqli_connect_errno () . ")" );
-			exit ();
+			//exit ();
 		}
 		
 	}
