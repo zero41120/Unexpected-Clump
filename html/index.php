@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<title>Unexpected Clump</title>
-		<link rel="shortcut icon" type="image/x-icon" href="images/UnexpectedClump.ico" />
+		<link rel="shortcut icon" type="image/x-icon" href="images/unexpectedclump.ico" />
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- CSS -->
