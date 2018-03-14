@@ -34,7 +34,7 @@
 
 	$room_user = Room_user::find_by_second_id($winner->id);
 	$room_user = $room_user[0];
-	var_dump($room_user);
+	Room_user::delete_junction($room->id, $winner->id);
 
 	$room_user->user_id = $judge->id;
 	$room_user->save();
