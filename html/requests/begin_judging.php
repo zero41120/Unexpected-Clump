@@ -19,13 +19,15 @@
 		$sta = Status::find_by_id($card->status_card_id);
 
 		$json_str .= "{";
-		$json_str .= '"player":"'. $player->id . '",';
-		$json_str .= '"name":"'. $player->name . '",';
-		$json_str .= get_json("character_card", $cha);
-		$json_str .= ",";
-		$json_str .= get_json("equipment_card", $equ);
-		$json_str .= ",";
-		$json_str .= get_json("status_card", $sta);
+			$json_str .= '"player":"'. $player->id . '",';
+			$json_str .= '"name":"'. $player->name . '",';
+			$json_str .= '"cards":{';
+				$json_str .= get_json("characters", $cha);
+				$json_str .= ",";
+				$json_str .= get_json("equipment", $equ);
+				$json_str .= ",";
+				$json_str .= get_json("status", $sta);
+			$json_str .= "}";
 		$json_str .= "},";
 	}
 	$json_str = rtrim($json_str, ",");
