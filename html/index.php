@@ -113,13 +113,10 @@
 			</div>
 
 			<div class="view" id="select_winner_view">
-				<div class="message">Select the winner:</div>
+				<div class="message">Select the winner, you may go back and re-enter to update the players</div>
 				<div id="player_list"></div>
 				<div class="button" id="judge_back_button">
 					<span class="button_label">Back</span>
-				</div>
-				<div class="button return_button">
-					<span class="button_label">Home</span>
 				</div>
 			</div>
 
