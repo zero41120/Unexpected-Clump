@@ -110,8 +110,7 @@
 				<div id="scroll_container"></div>
 				<p class="a">
 				<button type="button" class="btn btn-success" id="submit_button">Submit</button>
-				</p>
-				<p class="a">
+
 				<button type="button" class="btn btn-danger" id="clear_button">Clear</button>
 				</p>
 
@@ -146,16 +145,15 @@
 				</div>
 				<p class="a">
 				<button type="button" class="btn btn-success" id="continue_button">Continue</button>
-				</p>
-				<p class="a">
-				<button type="button" class="btn btn-danger" id="exit_button">Exit</button>
+
+				<button type="button" class="btn btn-danger exit_button">Exit</button>
 				</p>
 			</div>
 
 			<div class="view" id="error_view">
 				<div class="message" id="error_message">An error has occurred: <span id="error_text"></span>.</div>
 				<p class="a">
-				<button type="button" class="btn btn-primary" id="exit_button">Home</button>
+				<button type="button" class="btn btn-primary exit_button">Home</button>
 				</p>
 			</div>
 			
