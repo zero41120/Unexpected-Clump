@@ -75,8 +75,10 @@
 						<span class="input_text"><input type="text" id="host_name_input"></input></span>
 					</p> 
 				</div>
-				
-				<div class="button" id="submit_create_button">Create</div>
+				<p class="a">
+				<button type="button" class="btn btn-success" id="submit_create_button">Create</button>
+				</p>
+			
 			</div>
 
 			<div class="view" id="join_room_view">
@@ -92,11 +94,10 @@
 						<span class="input_text"><input type="text" id="room_number_input"></input></span>
 					</p> 
 				</div>
-				<div class="button" id="submit_join_button">
-					<p class="button_text">
-						<span class="button_label">Join Room</span>
-					</p>
-				</div>
+				<p class="a">
+				<button type="button" class="btn btn-success" id="submit_join_button">Join Room</button>
+				</p>
+
 			</div>
 			
 			<div class="view" id="rules_text">
@@ -107,24 +108,31 @@
 
 			<div class="view" id="card_select_view">
 				<div id="scroll_container"></div>
-				<div class="button" id="submit_button"><span class="button_label">Submit</span></div>
-				<div class="button" id="clear_button"><span class="button_label">Clear</span></div>
+				<p class="a">
+				<button type="button" class="btn btn-success" id="submit_button">Submit</button>
+				</p>
+				<p class="a">
+				<button type="button" class="btn btn-danger" id="clear_button">Clear</button>
+				</p>
+
 			</div>
 
 			<div class="view" id="judge_wait_view">
 				<div class="message">You are judging for: Room <span id="room_label"></span></div>
 				<div class="message">Select a winner after all players have chosen their cards.</div>
-				<div class="button" id="select_winner_button">
-					<span class="button_label">Select Winner</span>
-				</div>
+				<p class="a">
+				<button type="button" class="btn btn-success" id="select_winner_button">Select Winner</button>
+				</p>
+
 			</div>
 
 			<div class="view" id="select_winner_view">
 				<div class="message">Select the winner, you may go back and re-enter to update the players</div>
 				<div id="player_list"></div>
-				<div class="button" id="judge_back_button">
-					<span class="button_label">Back</span>
-				</div>
+				<p class="a">
+				<button type="button" class="btn btn-warning" id="judge_back_button">Back</button>
+				</p>				
+
 			</div>
 
 			<div class="view" id="continue_view">
@@ -136,17 +144,19 @@
 				<div class="judge_message">
 					<div class="message">Press continue to start a new round.</div>
 				</div>
-				<div class="button" id="continue_button">
-					<span class="button_label">Continue</span>
-				</div>
-				<div class="button" id="exit_button">
-					<span class="button_label">Exit Room</span>
-				</div>
+				<p class="a">
+				<button type="button" class="btn btn-success" id="continue_button">Continue</button>
+				</p>
+				<p class="a">
+				<button type="button" class="btn btn-danger" id="exit_button">Exit</button>
+				</p>
 			</div>
 
 			<div class="view" id="error_view">
 				<div class="message" id="error_message">An error has occurred: <span id="error_text"></span>.</div>
-				<div class="button return_button"><span class="button_label">Home</span></div>
+				<p class="a">
+				<button type="button" class="btn btn-primary" id="exit_button">Home</button>
+				</p>
 			</div>
 			
 		</div>
