@@ -11,7 +11,7 @@
 <html>
 <head>
 	<title>Test join</title>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body onload="test()">
 	See console, this page should run create_room.php for 100 times, checking the json encode.
